@@ -1,0 +1,21 @@
+---
+- name: "Gathering Facts to cache"
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Wait for facts gathering
+      ansible.builtin.wait_for_connection.wait_for_connection:
+        timeout: 300
+      async: 300
+      poll: 10
+
+- name: Bootstrap setup on all hosts
+  hosts: all
+  become: true
+  gather_facts: false
+  roles:
+    - role: apt
+    - role: common
+    - role: users
+    - role: ssh
+    - role: iptables

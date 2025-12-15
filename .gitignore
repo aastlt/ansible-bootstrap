@@ -1,0 +1,11 @@
+# .gitignore
+
+*.retry
+test.yml
+#-test*
+#*_test*
+*.bak
+.cache
+.venv
+.ansible
+zbackup
