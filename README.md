@@ -147,8 +147,7 @@ git clone https://github.com/aastlt/ansible-bootstrap
 cd ansible-bootstrap
 
 # Установите зависимости Ansible
-ansible-galaxy collection install community.general
-ansible-galaxy collection install ansible.posix
+ansible-galaxy install -r requirements.yml
 
 # Настройте inventory
 cp inventory/hosts.example inventory/hosts
@@ -297,10 +296,10 @@ iptables_rules_in:
 - Sudo права на целевых хостах
 - Доступ к интернету для загрузки пакетов
 
-### Ansible Collections
+### Установка зависимостей
 ```bash
-ansible-galaxy collection install community.general
-ansible-galaxy collection install ansible.posix
+# Установка Ansible коллекций
+ansible-galaxy install -r requirements.yml
 ```
 
 ## Устранение неполадок
